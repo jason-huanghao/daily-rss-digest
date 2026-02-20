@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 RSS Heartbeat: Daily Fetch, Summarize, and Git Commit
-Runs at 4:00 AM daily.
+Config-Driven Version (Universal Installer Ready)
+
 Architecture: Permanent Local Mirror (Monorepo)
 Schema: Knowledge Item v0.2
 """
@@ -21,6 +22,7 @@ import requests
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
 import re
+import yaml  # New dependency for config
 
 # Attempt to import langdetect, fallback to 'en' if missing
 try:
@@ -29,23 +31,55 @@ try:
 except ImportError:
     LANG_DETECT_AVAILABLE = False
 
-# Load environment variables (from parent dir via shell wrapper)
-load_dotenv()
+# --- Configuration Loading ---
+def load_config():
+    """Loads config from config.yaml, then env vars, then defaults."""
+    script_dir = Path(__file__).parent
+    config_file = script_dir / "config.yaml"
+    
+    # Defaults
+    config = {
+        "schedule": "0 4 * * *",
+        "opml_path": str(script_dir / "feeds.opml"),
+        "github_user": None,
+        "github_repo": None,
+        "github_token_env": "GITHUB_TOKEN",
+        "output_dir": str(script_dir),
+        "fetch_hours": 24,
+        "content_limit": 15000,
+        "max_workers_percent": 0.8
+    }
 
-# --- Configuration ---
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-GITHUB_USER = "jason-huanghao"
-REPO_NAME = "daily-rss-digest"
-OPML_FILE = "feeds.opml"
-JSON_FOLDER = "json"
-DIGEST_FOLDER = "digest"
-MAX_WORKERS = max(1, int((os.cpu_count() or 4) * 0.8))
-FETCH_HOURS = 24
-CONTENT_LIMIT = 15000
+    # Load from YAML if exists
+    if config_file.exists():
+        try:
+            with open(config_file, 'r') as f:
+                yaml_config = yaml.safe_load(f)
+                if yaml_config:
+                    config.update(yaml_config)
+            print(f"✅ Loaded config from {config_file}")
+        except Exception as e:
+            print(f"⚠️ Error reading config.yaml: {e}. Using defaults.")
+    
+    # Resolve paths relative to script dir if not absolute
+    if not os.path.isabs(config['opml_path']):
+        config['opml_path'] = str(script_dir / config['opml_path'])
+    
+    if not os.path.isabs(config['output_dir']):
+        config['output_dir'] = str(script_dir / config['output_dir'])
+
+    # Load Token from Env
+    token_env = config.get('github_token_env', 'GITHUB_TOKEN')
+    config['github_token'] = os.getenv(token_env)
+
+    return config
+
+CONFIG = load_config()
 
 # --- Helper Functions ---
-
 def parse_opml(opml_path):
+    if not os.path.exists(opml_path):
+        raise FileNotFoundError(f"OPML file not found: {opml_path}")
     tree = ET.parse(opml_path)
     root = tree.getroot()
     feeds = []
@@ -80,7 +114,8 @@ def fetch_full_content(url, timeout=8):
         if content:
             md_content = md(str(content), heading_style='ATX', strip=['a'])
             md_content = re.sub(r'\n{3,}', '\n\n', md_content).strip()
-            return md_content[:CONTENT_LIMIT] + ("..." if len(md_content) > CONTENT_LIMIT else "")
+            limit = CONFIG.get('content_limit', 15000)
+            return md_content[:limit] + ("..." if len(md_content) > limit else "")
     except:
         pass
     return None
@@ -89,7 +124,6 @@ def detect_language(text):
     if not LANG_DETECT_AVAILABLE or not text:
         return "en"
     try:
-        # Use first 1000 chars for speed
         return detect(text[:1000])
     except:
         return "en"
@@ -110,9 +144,7 @@ def fetch_feed(feed, cutoff, fetched_at):
             if not url:
                 continue
             
-            # Generate Global ID
             item_id = hashlib.sha1(url.encode('utf-8')).hexdigest()
-            
             summary_raw = entry.get('summary', '') or entry.get('description', '')
             summary_text = ""
             if summary_raw:
@@ -120,12 +152,11 @@ def fetch_feed(feed, cutoff, fetched_at):
             
             full_content = fetch_full_content(url)
             if not full_content:
-                full_content = summary_text # Fallback if scrape fails
+                full_content = summary_text
             
             lang = detect_language(full_content or summary_text)
             reading_time = calculate_reading_time(full_content or summary_text)
 
-            # Knowledge Item Schema v0.2
             item = {
                 "id": item_id,
                 "source_type": "rss",
@@ -153,10 +184,7 @@ def generate_summary(items_dict):
     if not items_dict:
         return "# Daily Digest\n\nNo new articles found today."
     
-    # Convert dict values to list for processing
     articles = list(items_dict.values())
-    
-    # Group by source
     by_source = {}
     for a in articles:
         by_source.setdefault(a['source_name'], []).append(a)
@@ -173,39 +201,76 @@ def generate_summary(items_dict):
         for item in items:
             lines.append(f"- [{item['title']}]({item['url']})")
             if item['summary']:
-                # Escape > in summary to avoid breaking markdown blockquote
                 safe_summary = item['summary'].replace('>', '\>')
-                lines.append(f"  > {safe_summary}")
+                lines.append(f" > {safe_summary}")
         lines.append("")
     
     return "\n".join(lines)
+
+def git_sync_and_commit(base_dir, today, json_filename, md_filename):
+    user = CONFIG.get('github_user')
+    repo = CONFIG.get('github_repo')
+    token = CONFIG.get('github_token')
+    
+    if not user or not repo or not token:
+        print("⚠️ GitHub sync disabled (missing config). Local files saved only.")
+        github_url = f"file://{base_dir}/{md_filename}"
+        return github_url
+
+    print("🔄 Syncing with GitHub...")
+    # Safe pull
+    os.system(f"cd '{base_dir}' && git pull --rebase origin main >/dev/null 2>&1 || (git rebase --abort >/dev/null 2>&1 && git pull origin main >/dev/null 2>&1)")
+    
+    status = os.popen(f"cd '{base_dir}' && git status --porcelain").read()
+    if status:
+        print("📝 Changes detected. Committing...")
+        os.system(f"cd '{base_dir}' && git add {json_filename} {md_filename}")
+        # Temporarily set user info if not set
+        os.system(f"cd '{base_dir}' && git config user.name 'Nanobot Heartbeat' >/dev/null 2>&1")
+        os.system(f"cd '{base_dir}' && git config user.email 'heartbeat@nanobot.local' >/dev/null 2>&1")
+        os.system(f"cd '{base_dir}' && git commit -m 'Daily RSS digest: {today}'")
+        
+        print("⬆️ Pushing to GitHub...")
+        # Use token for auth
+        push_result = os.system(f"cd '{base_dir}' && git push https://{user}:{token}@github.com/{user}/{repo}.git main")
+        
+        if push_result == 0:
+            github_url = f"https://github.com/{user}/{repo}/blob/main/{md_filename}"
+        else:
+            print("❌ Git push failed.", file=sys.stderr)
+            github_url = f"file://{base_dir}/{md_filename}"
+    else:
+        print("✨ No new changes. Skipping commit.")
+        github_url = f"https://github.com/{user}/{repo}/blob/main/{md_filename}"
+    
+    return github_url
 
 def main():
     fetched_at = datetime.now(timezone.utc).isoformat()
     print(f"🚀 RSS Heartbeat started at {fetched_at}")
     
-    # Paths (Relative to script location)
-    base_dir = Path(__file__).parent
-    opml_path = base_dir / OPML_FILE
+    base_dir = Path(CONFIG['output_dir'])
+    opml_path = Path(CONFIG['opml_path'])
     
     if not opml_path.exists():
-        print(f"Error: {opml_path} not found", file=sys.stderr)
+        print(f"❌ Error: OPML file not found at {opml_path}", file=sys.stderr)
         sys.exit(1)
     
     # Ensure output folders exist
-    json_dir = base_dir / JSON_FOLDER
-    digest_dir = base_dir / DIGEST_FOLDER
+    json_dir = base_dir / "json"
+    digest_dir = base_dir / "digest"
     json_dir.mkdir(exist_ok=True)
     digest_dir.mkdir(exist_ok=True)
     
     feeds = parse_opml(opml_path)
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=FETCH_HOURS)
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=CONFIG.get('fetch_hours', 24))
+    max_workers = max(1, int((os.cpu_count() or 4) * CONFIG.get('max_workers_percent', 0.8)))
     
-    print(f"Fetching {len(feeds)} feeds (last {FETCH_HOURS}h) with {MAX_WORKERS} workers...")
+    print(f"Fetching {len(feeds)} feeds (last {CONFIG.get('fetch_hours', 24)}h) with {max_workers} workers...")
     
-    all_items = {} # Dict keyed by SHA1 ID
+    all_items = {}
     
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {executor.submit(fetch_feed, f, cutoff, fetched_at): f for f in feeds}
         for i, future in enumerate(as_completed(futures)):
             try:
@@ -225,43 +290,23 @@ def main():
     json_path = json_dir / json_filename
     md_path = digest_dir / md_filename
     
-    # Write JSON (Schema v0.2)
+    # Write JSON
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(all_items, f, indent=2, ensure_ascii=False)
     print(f"💾 Saved: {json_path}")
     
-    # Generate & Write Markdown
+    # Write Markdown
     summary_md = generate_summary(all_items)
     with open(md_path, 'w', encoding='utf-8') as f:
         f.write(summary_md)
     print(f"💾 Saved: {md_path}")
     
-    # Git Workflow (Sync, Commit, Push)
-    print("🔄 Syncing with GitHub...")
-    os.system(f"cd '{base_dir}' && git pull --rebase origin main || (git rebase --abort && git pull origin main)")
+    # Git Sync
+    github_url = git_sync_and_commit(base_dir, today, str(json_path.relative_to(base_dir)), str(md_path.relative_to(base_dir)))
     
-    # Check for changes
-    status = os.popen(f"cd '{base_dir}' && git status --porcelain").read()
-    if status:
-        print("📝 Changes detected. Committing...")
-        os.system(f"cd '{base_dir}' && git add {JSON_FOLDER} {DIGEST_FOLDER}")
-        os.system(f"cd '{base_dir}' && git commit -m 'Daily RSS digest: {today}'")
-        print("⬆️ Pushing to GitHub...")
-        push_result = os.system(f"cd '{base_dir}' && git push origin main")
-        if push_result == 0:
-            github_url = f"https://github.com/{GITHUB_USER}/{REPO_NAME}/blob/main/{DIGEST_FOLDER}/{md_filename}"
-            print("\n" + "="*50)
-            print(f"✅ DAILY DIGEST READY: {github_url}")
-            print("="*50)
-        else:
-            print("❌ Git push failed.", file=sys.stderr)
-            sys.exit(1)
-    else:
-        print("✨ No new changes. Skipping commit.")
-        github_url = f"https://github.com/{GITHUB_USER}/{REPO_NAME}/blob/main/{DIGEST_FOLDER}/{md_filename}"
-        print("\n" + "="*50)
-        print(f"✅ DAILY DIGEST READY (No new content): {github_url}")
-        print("="*50)
+    print("\n" + "="*50)
+    print(f"✅ DAILY DIGEST READY: {github_url}")
+    print("="*50)
 
 if __name__ == "__main__":
     main()
