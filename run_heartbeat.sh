@@ -29,6 +29,10 @@ echo "🚀 Starting RSS Heartbeat at $(date)"
 echo "📂 Working Directory: $SCRIPT_DIR"
 echo "🔧 Using UV: $UV_PATH"
 
+# Ensure dependencies are installed
+echo "📦 Syncing dependencies..."
+$UV_PATH pip sync requirements.txt
+
 # Run the Python script
 # The script itself will load config.yaml
 $UV_PATH run python rss_heartbeat.py

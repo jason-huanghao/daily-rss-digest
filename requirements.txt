@@ -1,0 +1,8 @@
+python-dotenv
+feedparser
+langdetect
+beautifulsoup4
+markdownify
+requests
+rich
+pyyaml
