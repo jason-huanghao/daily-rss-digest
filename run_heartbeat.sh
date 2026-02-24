@@ -9,9 +9,12 @@ set -e
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR"
 
-# Load .env if it exists (for GITHUB_TOKEN, etc.)
-if [ -f ".env" ]; then
-    export $(cat .env | xargs)
+# Note: GITHUB_TOKEN should be set in launchd plist EnvironmentVariables
+# or in your shell profile (~/.zshrc or ~/.bash_profile)
+# For GitHub sync to work, set: export GITHUB_TOKEN=your_token_here
+
+if [ -z "$GITHUB_TOKEN" ]; then
+    echo "⚠️ Warning: GITHUB_TOKEN not set. GitHub sync disabled."
 fi
 
 # Find uv (try common paths)
@@ -29,13 +32,20 @@ echo "🚀 Starting RSS Heartbeat at $(date)"
 echo "📂 Working Directory: $SCRIPT_DIR"
 echo "🔧 Using UV: $UV_PATH"
 
+# Create/ensure local virtualenv
+VENV_PATH="$SCRIPT_DIR/.venv"
+if [ ! -d "$VENV_PATH" ]; then
+    echo "🔧 Creating virtual environment..."
+    $UV_PATH venv "$VENV_PATH"
+fi
+
 # Ensure dependencies are installed
-echo "📦 Syncing dependencies..."
-$UV_PATH pip sync requirements.txt
+echo "📦 Installing dependencies..."
+$UV_PATH pip install --python "$VENV_PATH/bin/python" -r requirements.txt
 
 # Run the Python script
 # The script itself will load config.yaml
-$UV_PATH run python rss_heartbeat.py
+"$VENV_PATH/bin/python" rss_heartbeat.py
 
 EXIT_CODE=$?
 

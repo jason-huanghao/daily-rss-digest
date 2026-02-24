@@ -1,5 +1,6 @@
 python-dotenv
-feedparser
+feedparser>=6.0.10
+sgmllib3k
 langdetect
 beautifulsoup4
 markdownify

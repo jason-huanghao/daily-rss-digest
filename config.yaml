@@ -1,0 +1,25 @@
+# RSS Heartbeat Configuration
+# Copy this file to 'config.yaml' and edit the values.
+
+# --- Schedule ---
+# Cron expression (e.g., "0 4 * * *" for 4 AM daily)
+schedule: "0 4 * * *"
+
+# --- Inputs ---
+# Path to your OPML file (absolute path recommended)
+opml_path: "/Users/mac/.nanobot/workspace/daily-rss-digest/feeds.opml"
+
+# --- GitHub Sync (Optional) ---
+# Set to null or empty string to disable git push (local only)
+github_user: "jason-huanghao"
+github_repo: "daily-rss-digest"
+github_token_env: "GITHUB_TOKEN" # Name of the env var containing the token
+
+# --- Output ---
+# Where to save JSON and Markdown files (relative to script or absolute)
+output_dir: "." 
+
+# --- Processing ---
+fetch_hours: 24
+content_limit: 15000
+max_workers_percent: 0.8 # 80% of CPU cores

@@ -201,7 +201,7 @@ def generate_summary(items_dict):
         for item in items:
             lines.append(f"- [{item['title']}]({item['url']})")
             if item['summary']:
-                safe_summary = item['summary'].replace('>', '\>')
+                safe_summary = item['summary'].replace('>', r'\>')
                 lines.append(f" > {safe_summary}")
         lines.append("")
     
