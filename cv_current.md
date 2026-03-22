@@ -1,81 +1,79 @@
 # Hao Huang
 
-PhD Candidate, Computer Science (Graduating Jul 2026), Leibniz University Hannover & TIB (Germany) , Hannover, DE 
-- Earliest Availability: **August of 2026**
-- Email: jason.hao.academic@gmail.com
-- Phone: +4915773502431
-- LinkedIn: https://www.linkedin.com/in/jasonhuanghao/
-- GitHub: https://github.com/jason-huanghao 
-- Google Scholar: https://scholar.google.co.uk/citations?user=cL11UL8AAAAJ&hl=en
-![photo](https://raw.githubusercontent.com/jason-huanghao/PicGoBed/master/imgs/202603031105188.jpg)
+Applied AI Researcher & Data and Knowledge Engineer
+
+**Specialization:** Knowledge Graphs | Causality | Agentic LLM Workflows
+**Location:** Hannover, Germany (Free to relocate to other cities in Germany)
+**Availability:** August 2026 (Post-PhD Graduation)
+**Contact:** jason.hao.academic@gmail.com | +4915773502431
+**Links:** LinkedIn | GitHub | Google Scholar
 
 ---
 
-## Summary
-- PhD candidate focusing on Knowledge Graphs / Causality for assisting decision making / Clinical Biomedical Data Analysis / LLM Application / Experience in **end-to-end AI systems** (data → modelling → evaluation → deployment / tooling).
-- Strengths: **research-to-production**, **AI system design**, experiment rigor, stakeholder communication (professional EN; DE A1–A2).
-- Seeking roles in **Applied Scientist / Data Scientist / ML Engineer (Systems) / AI Product (prefer full stack of hardware and software)** in Germany/EU.
-- Interdisciplinary AI researcher and systems thinker bridging Knowledge Graphs (KGs) and Large Language Models (LLMs). Strong presentation, communication, and product-oriented mindset. Empathetic collaborator with international academic experience.
+## Professional Profile
+
+Applied AI researcher and knowledge engineer with 4+ years of experience designing Knowledge Graph-driven AI systems for enterprise decision-making and explainable AI.
+
+Expert in building end-to-end Knowledge Graph pipelines and integrating them with causal inference and Large Language Models (LLMs) to enable interpretable, reliable, and data-driven decision support systems.
+
+Strong background in neuro-symbolic AI, combining structured knowledge with machine learning for real-world applications in industrial systems and healthcare. Experienced in collaborating with industry partners (e.g., Bosch) to address root cause analysis and system-level reasoning challenges.
+
+Actively learning and developing agentic LLM workflows (via OpenClaw), focusing on combining AI agents for assisting everyday life tasks.
 
 ---
 
-## Core Skills
-**ML/AI:** Knowledge Graph, Causal Discovery and Inference, Semantic Modelling, Bayesian Network, GNN,  LLM, LLM edge deployment.
-**Engineering:** Very good at using AI tools for  development, Python, PyTorch, Graph Database, Docker, Linux, Git.
-**Data:** data modelling, knowledge graph creation, feature engineering, evaluation, A/B testing, experiment design.  
-**Languages:** English (IELTS 6.5), German (A1/A2 in learning), Chinese (Native).
+## Core Technical Stack
+
+- **Knowledge Graph (KG) Stack:** RDF/RDFS, OWL, SPARQL, SHACL (Data Quality), RML/R2RML (Mapping), Virtuoso, GraphDB.
+- **AI & Machine Learning:** Causal Inference & Discovery (specialisation), Bayesian Networks, Graph Neural Networks (GNN), KG Embeddings
+- **Generative AI & Agents:** Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Prompt Engineering, Fine-tuning, Agentic Skills.
+- **Engineering:** Vibe Coding, Python (Expert), PyTorch, Data Query, Git, etc.
+- **Languages:** English (Professional, IELTS 6.5), German (A2, Learning), Chinese (Native).
+
+---
+
+## Professional Experience
+
+### Applied Research & Knowledge Engineer (PhD Researcher) | TIB & Leibniz University Hannover
+**Hannover, DE | Dec 2021 – Present**
+
+- **KG Creation Engineering:** Design ontology, map heterogeneous sources (CSV, JSON, Relational) to ontologies via RML/R2RML, populate Knowledge Graph using SDM-RDFizer, query data via SPARQL over graph database, validate SHACL constraints over KGs.
+- **Causal & Explainable AI over Knowledge Graphs:** Propose neuro-symbolic frameworks combining Knowledge Graphs with causal inference for interpretable decision support systems. Apply causal reasoning techniques for root cause analysis in complex systems.
+- **Industry Collaboration (Bosch – ongoing project):** Collaborate with Bosch researchers on AI-driven root cause analysis for production systems. Propose novel causal model over KGs, combining Knowledge Graphs and causal models to improve system-level diagnosis and reasoning.
+- **Research Contributions:** Published 10 papers (8 as first author) in top-tier venues including WSDM 2025/2026 and Journal of Web Semantics, focusing on Knowledge Graph + Causality + Neuro-symbolic AI integration.
+
+### AI Evangelist & Developer (Independent Projects)
+
+- **Agentic Systems Development:** Built an LLM-driven agentic system, JobRadar, which automates job scrawl, analysis, scoring, and multi-platform application.
+- **Technical Community & Knowledge Sharing:** Maintained a WeChat official account for 4+ years, sharing technical insights on KGs, LLMs and new AI tools for daily life.
+
+---
+
+## Selected Publications
+
+- **BaLu: Joint Graph Learning for Robust Causal Inference over Knowledge Graphs (WSDM 2026)**
+  - Proposed a GNN-based framework for causal inference under data incompleteness and interference
+  - Achieved state-of-the-art performance on real-world datasets
+
+- **KG4Cause: Deriving Neuro-Symbolic Priors from Knowledge Graphs for Causal Discovery using Large Language Models (Under Review, RK 2026)**
+  - Leveraging Knowledge Graphs to derive neuro-symbolic priors via LLM for ML-based causal discovery
+
+- **Integrating knowledge graphs with symbolic AI: The path to interpretable hybrid AI systems in medicine (Journal of Web Semantics 2025)**
+  - A position paper present the current challenges and opportunities in integrating KGs with neuro-symbolic AI for interpretable AI systems. Demonstrated via a system in medical domain.
 
 ---
 
 ## Education
-**Leibniz University Hannover & TIB, Germany**  
-PhD in Computer Science, 04/2022 - expected Jul 2026  
-- Research: **combine knowledge graph and AI techniques to help people making trustable and explainable decision** 
 
-**South China University of Technology, China** 
-Master in Computer Science, 09/2018 - 09/2021
+### Leibniz University Hannover & TIB, Germany
+**PhD in Computer Science, 04 / 2022 - Now (Expected Graduation: July 2026)**
+- **Thesis:** Causality with Knowledge Graphs: Semantics and Inference
 
-**University of Nantes, France** 
-Master in Data Science, 09/2019 - 08/2020
+### South China University of Technology, China
+**Master in Computer Science, 09/2018 - 09/2021**
 
-**Hunan University of Science and Technology, China** 
-Bachelor in Information Security, 09/2014 - 06/2018
+### University of Nantes, France
+**Master in Data Science, 09/2019 - 08/2020**
 
----
-
-## Experience
-### Research Assistant / PhD Researcher — TIB / Leibniz University Hannover
-Hannover, DE, 12/2021 – Present
-- Research on Knowledge Graph and Causality, mainly focus on causal discovery, causal knowledge modelling, and causal estimation under missing data and interference. Published 10 research papers (on 8 of them I am the first author) in different venues, such as WSDM, WISE, Web Semantics. 
-
----
-
-## Representative Publications
-- [Integrating knowledge graphs with symbolic AI: The path to interpretable hybrid AI systems in medicine (Journal of Web Semantics' 25)](https://scholar.google.co.uk/citations?view_op=view_citation&hl=en&user=cL11UL8AAAAJ&citation_for_view=cL11UL8AAAAJ:UeHWp8X0CEIC) 
-- [Joint Graph Learning for Robust Causal Inference over Knowledge Graphs (WSDM' 26)](https://scholar.google.co.uk/citations?view_op=view_citation&hl=en&user=cL11UL8AAAAJ&citation_for_view=cL11UL8AAAAJ:W7OEmFMy1HYC) 
-- [HyKG-CF: A Hybrid Approach for Counterfactual Prediction using Domain Knowledge (WSDM' 25)](https://scholar.google.co.uk/citations?view_op=view_citation&hl=en&user=cL11UL8AAAAJ&citation_for_view=cL11UL8AAAAJ:zYLM7Y9cAGgC)
-
----
-
-## Target Roles (Priority Order)
-1. AI Product Manager / Technical Product Manager (AI/ML)
-2. Developer Advocate / Developer Relations / AI Evangelist
-3. Applied AI Researcher / AI Scientist (applied, not pure theory)
-4. Software and hardware integrated Engineerer
-5. AI Solutions Architect
-6. R&D Engineer (AI/KG teams)
-7. Data Scientist (heavy causal inference / LLM application only)
-
----
-
-## Industry & Domain Preferences (High Priority)
-- Graph Database Companies (e.g., Neo4j, NebulaGraph, Weaviate, RelationalAI).
-- AI Startups focusing on AI Agents, Enterprise RAG, and Neuro-symbolic AI.
-- Healthcare / Pharma Tech (e.g., AI4Science, AI drug discovery, medical knowledge graphs).
-- Industrial Intelligence / Manufacturing (e.g., Bosch, Siemens, SAP - specifically their AI innovation labs).
-
---- 
-
-## Hard Filters (Do NOT apply to these)
-- Pure frontend development
-- Location: Out of Germany or out of China
+### Hunan University of Science and Technology, China
+**Bachelor in Information Security, 09/2014 - 06/2018**
