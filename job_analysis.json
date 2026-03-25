@@ -1,0 +1,220 @@
+{
+  "jobs": [
+    {
+      "company": "Allianz Deutschland AG",
+      "role": "Medical Data Scientist",
+      "location": "Unterföhring, Bayern",
+      "url": "https://www.arbeitsagentur.de/jobsuche/suche?id=10000-1205876926-S",
+      "Hao_Match_Summary": "这是一个高度匹配的岗位。Allianz作为德国最大的保险公司之一，正在将可解释AI和可信赖AI应用于理赔流程，这正是Hao的研究强项。医疗数据科学岗位需要处理敏感医疗数据，要求模型的可解释性和合规性，Hao的因果推断和知识图谱背景在此具有独特优势。A2德语水平可能在面试中面临挑战，但技术匹配度极高。",
+      "Pros_for_Hao": [
+        "医疗数据领域直接对口Hao的生物医学研究经验",
+        "可解释AI需求与Hao的因果推断研究完美契合",
+        "Allianz在AI转型期，技术影响力大，晋升空间明确",
+        "德国保险监管严格，合规AI需求为因果推理技术提供用武之地",
+        "大型企业AI团队，学习资源丰富，跨部门协作机会多"
+      ],
+      "Red_Flags": [
+        "德语要求可能高于A2（B1-B2更现实）",
+        "保险行业数据合规性要求极高，学习曲线陡峭",
+        "大型企业决策流程慢，技术推动可能受限",
+        "München成本高，薪资与生活成本需权衡"
+      ],
+      "Score": 88,
+      "Recommendation": "Highly Recommended"
+    },
+    {
+      "company": "SBK Siemens-Betriebskrankenkasse",
+      "role": "Data Scientist / KI-Engineer",
+      "location": "München, Bayern",
+      "url": "https://www.kalaydo.de/jobs/16058981/",
+      "Hao_Match_Summary": "西门子健康保险公司是德国最大的健康保险之一，医疗AI应用场景丰富。KI-Engineer岗位涉及端到端AI系统构建，Hao的全栈AI系统能力和研究背景具有优势。但德语要求可能较高，且健康保险领域的专业性需要时间积累。",
+      "Pros_for_Hao": [
+        "医疗健康保险领域，与Hao的生物医学研究背景相关",
+        "KI-Engineer强调工程实践，Hao的端到端经验匹配",
+        "西门子生态系统庞大，内部转岗机会多",
+        "医疗AI在德国增长迅速，长期职业前景好",
+        "西门子重视技术创新，研究驱动的文化适合Hao"
+      ],
+      "Red_Flags": [
+        "德语B1-B2 likely required for stakeholder communication",
+        "健康保险领域知识门槛高，需要快速学习",
+        "西门子组织架构复杂，决策链长",
+        "München房价和生活成本压力大"
+      ],
+      "Score": 82,
+      "Recommendation": "Recommended with Caution"
+    },
+    {
+      "company": "Sanofi",
+      "role": "Quantitative Systems Pharmacology Modeler",
+      "location": "Frankfurt am Main",
+      "Hao_Match_Summary": "Sanofi的QSP建模岗位聚焦药物定量系统药理学建模，本质上是生物医学领域的因果建模工作。Hao的因果推断、知识图谱和生物医学研究背景具有显著优势。这是一个研究导向的岗位，与Hao的学术背景高度兼容。Frankfurt金融中心，国际化程度高，对德语要求可能相对宽松。",
+      "Pros_for_Hao": [
+        "QSP建模本质是因果推理，Hao的核心研究强项",
+        "生物医药研发领域，与Hao的研究方向直接相关",
+        "Sanofi重视研究，PhD背景受到重视",
+        "Frankfurt国际化，英语工作环境可能可行",
+        "制药行业薪酬水平高，长期职业路径清晰（从建模到药物研发领导）"
+      ],
+      "Red_Flags": [
+        "特定领域知识（药理学、药物动力学）需要补充",
+        "制药行业合规要求严格（FDA/EMA）",
+        "Frankfurt成本较高",
+        "岗位可能需要与wet-lab团队合作，跨学科挑战"
+      ],
+      "Score": 85,
+      "Recommendation": "Highly Recommended"
+    },
+    {
+      "company": "NOWEDA Apothekergenossenschaft",
+      "role": "Data Scientist",
+      "location": "Essen",
+      "Hao_Match_Summary": "NOWEDA是德国最大的药房合作组织之一，医药批发领域的AI应用包括需求预测、库存优化、供应链优化等。Hao的端到端AI系统能力和研究背景可以应用，但医疗供应链领域的专业知识需要学习。Essen位于北威州，生活成本相对合理。",
+      "Pros_for_Hao": [
+        "医药供应链领域数据丰富，AI应用场景多",
+        "NOWEDA是中等规模企业，技术影响力可能更快体现",
+        "北威州生活成本低于南德",
+        "数据驱动决策文化，数据科学团队价值高"
+      ],
+      "Red_Flags": [
+        "供应链领域知识需要学习（不同于纯研究）",
+        "Essen地理位置吸引力相对较弱",
+        "德语要求可能B1+",
+        "公司知名度低于Allianz/Sanofi，简历加成有限"
+      ],
+      "Score": 75,
+      "Recommendation": "Recommended with Caution"
+    },
+    {
+      "company": "fb research GmbH",
+      "role": "Data Scientist",
+      "location": "Hannover",
+      "Hao_Match_Summary": "fb research是Hannover本地的研究/AI产品公司，地理位置极佳（Hao所在地）。研究导向的公司文化通常与PhD背景兼容。但公司规模较小，信息公开有限，需要进一步了解业务方向和团队构成。Hao的本地研究机构背景（TIB/Leibniz University）可能带来网络优势。",
+      "Pros_for_Hao": [
+        "地理位置完美匹配，无需搬迁",
+        "本地公司，可能了解Hao的研究背景和TIB关联",
+        "小公司技术影响力可能更快体现",
+        "研究导向文化，学术背景受重视",
+        "Hannover生活成本合理"
+      ],
+      "Red_Flags": [
+        "公司规模小，资源和稳定性风险",
+        "信息公开有限，业务方向不明确",
+        "薪酬水平可能低于大型企业",
+        "职业发展路径可能不够清晰"
+      ],
+      "Score": 78,
+      "Recommendation": "Recommended with Caution"
+    },
+    {
+      "company": "IBM Client Innovation Center",
+      "role": "Data Scientist",
+      "location": "München",
+      "Hao_Match_Summary": "IBM作为传统科技巨头，AI历史悠久（Watson、IBM Research）。但Client Innovation Center更多是咨询性质，可能偏向客户项目交付而非深度研究。Hao的研究强项可能无法充分发挥。IBM企业文化较慢，创新速度可能不如创业公司。",
+      "Pros_for_Hao": [
+        "IBM在AI领域历史悠久，技术积累深厚",
+        "München地理位置好，职业机会多",
+        "大型企业培训资源丰富"
+      ],
+      "Red_Flags": [
+        "咨询性质可能偏向项目交付，而非深度研究",
+        "IBM转型期，组织架构不稳定",
+        "技术栈可能较传统（偏向Watson生态）",
+        "大型企业决策流程慢，个人影响力受限"
+      ],
+      "Score": 68,
+      "Recommendation": "Low Fit"
+    },
+    {
+      "company": "HDI AG",
+      "role": "Data Scientist",
+      "location": "Hannover/Hilden",
+      "Hao_Match_Summary": "HDI是汉诺威当地的保险公司集团，地理位置对Hao有利。保险领域的AI应用与Hao的可解释AI兴趣匹配。但HDI相对保守，技术创新氛围可能不如Allianz。需要了解HDI的AI团队成熟度和项目类型。",
+      "Pros_for_Hao": [
+        "本地公司，地理位置优势",
+        "保险领域AI需求增长",
+        "中型公司，技术影响力可能更快体现"
+      ],
+      "Red_Flags": [
+        "公司相对保守，技术创新氛围可能较弱",
+        "信息公开有限，AI团队成熟度不明确",
+        "汉诺威虽然技术公司多，但AI生态不如柏林/慕尼黑",
+        "薪酬可能低于南德公司"
+      ],
+      "Score": 72,
+      "Recommendation": "Low Fit"
+    },
+    {
+      "company": "Deutsche Rentenversicherung Bund",
+      "role": "Data Scientist",
+      "location": "Berlin",
+      "Hao_Match_Summary": "德国联邦养老保险机构，公共部门岗位。虽然稳定，但政府机构的创新速度通常较慢，技术栈可能较传统。柏林生活成本高。Hao的研究导向背景可能无法充分发挥。除非对公共部门有强烈兴趣，否则不是最优选择。",
+      "Pros_for_Hao": [
+        "公共部门稳定性高",
+        "柏林AI生态活跃，外部机会多"
+      ],
+      "Red_Flags": [
+        "政府机构创新速度慢，技术栈可能传统",
+        "决策流程慢，技术推动受限",
+        "柏林生活成本高",
+        "公共部门薪酬通常低于私营部门"
+      ],
+      "Score": 65,
+      "Recommendation": "Low Fit"
+    },
+    {
+      "company": "Liebherr-Werk Ehingen",
+      "role": "Data Scientist",
+      "location": "Ehingen/Donau",
+      "Hao_Match_Summary": "利勃海尔是传统重工/工程机械公司，AI应用可能偏向预测性维护、优化调度等工程问题。这与Hao的研究方向（知识图谱、因果推断在生物医学领域）匹配度较低。Ehingen地理位置偏，吸引力弱。除非有强烈的工业领域兴趣，否则不建议。",
+      "Pros_for_Hao": [
+        "工业4.0领域AI需求增长"
+      ],
+      "Red_Flags": [
+        "工程领域AI问题与Hao的研究方向匹配度低",
+        "传统制造企业，AI文化可能不成熟",
+        "地理位置偏，吸引力弱",
+        "可能需要工业领域知识"
+      ],
+      "Score": 55,
+      "Recommendation": "Avoid"
+    },
+    {
+      "company": "Dr. Ausbüttel",
+      "role": "Data Scientist Marketing",
+      "location": "Dortmund",
+      "Hao_Match_Summary": "营销数据科学岗位，偏向市场分析、用户画像、营销优化。这与Hao的深度研究方向（因果推断、知识图谱）匹配度较低。可能更多偏向传统数据分析/机器学习，而非前沿研究。除非Hao对营销领域有强烈兴趣，否则不建议。",
+      "Pros_for_Hao": [
+        "营销领域数据丰富，应用场景多"
+      ],
+      "Red_Flags": [
+        "营销领域与Hao的研究方向匹配度低",
+        "可能偏向传统数据分析，而非深度研究",
+        "Dortmund吸引力相对较弱"
+      ],
+      "Score": 58,
+      "Recommendation": "Avoid"
+    }
+  ],
+  "summary": {
+    "top_3_recommendations": [
+      "Allianz Deutschland AG - Medical Data Scientist (88分)",
+      "Sanofi - Quantitative Systems Pharmacology Model (85分)",
+      "SBK Siemens-Betriebskrankenkasse - KI-Engineer (82分)"
+    ],
+    "key_insights": [
+      "医疗/生物医学领域岗位匹配度最高，与Hao的研究方向直接相关",
+      "因果推断和可解释AI是Hao的核心竞争优势，应重点突出",
+      "德语是主要风险因素，建议在申请中强调英语工作能力和快速学习德语的意愿",
+      "研究导向的公司（Sanofi、fb research）比纯工程导向的公司更适合Hao的学术背景",
+      "地理位置（München vs Hannover）需要权衡：职业机会 vs 生活成本"
+    ],
+    "action_items": [
+      "优先申请Allianz和Sanofi，准备强调因果推断在医疗/生物数据中的应用",
+      "为SBK准备德语学习计划和医疗AI领域的案例研究",
+      "深入研究Sanofi的QSP建模领域，补充相关知识",
+      "考虑联系fb research了解具体业务方向，利用本地网络优势",
+      "准备德语B1学习计划，在面试中展示主动学习态度"
+    ]
+  }
+}
