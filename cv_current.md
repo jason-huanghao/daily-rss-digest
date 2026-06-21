@@ -4,7 +4,7 @@ Applied AI Researcher & Data and Knowledge Engineer
 
 **Specialization:** Knowledge Graphs | Causality | Agentic LLM Workflows
 **Location:** Hannover, Germany (Free to relocate to other cities in Germany)
-**Availability:** August 2026 (Post-PhD Graduation)
+**Availability:** Oct 2026 (Post-PhD Graduation)
 **Contact:** jason.hao.academic@gmail.com | +4915773502431
 **Links:** LinkedIn | GitHub | Google Scholar
 
