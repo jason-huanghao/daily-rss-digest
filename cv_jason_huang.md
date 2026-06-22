@@ -38,7 +38,7 @@ Applied Scientist / Data Scientist / ML Engineer (Systems) / AI Product (full-st
 - Causal Discovery & Causal Inference
 - Bayesian Networks
 - Graph Neural Networks (GNN)
-- Large Language Models (LL) & Edge Deployment
+- Large Language Models (LLM) & Edge Deployment
 - Explainable & Trustworthy AI
 
 ### Engineering
