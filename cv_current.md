@@ -4,7 +4,7 @@ Applied AI Researcher & Data and Knowledge Engineer
 
 **Specialization:** Knowledge Graphs | Causality | Agentic LLM Workflows
 **Location:** Hannover, Germany (Free to relocate to other cities in Germany)
-**Availability:** Oct 2026 (Post-PhD Graduation)
+**Availability:** Dec 2026 (Post-PhD Graduation)
 **Contact:** jason.hao.academic@gmail.com | +4915773502431
 **Links:** LinkedIn | GitHub | Google Scholar
 
@@ -55,7 +55,7 @@ Actively learning and developing agentic LLM workflows (via OpenClaw), focusing 
   - Proposed a GNN-based framework for causal inference under data incompleteness and interference
   - Achieved state-of-the-art performance on real-world datasets
 
-- **KG4Cause: Deriving Neuro-Symbolic Priors from Knowledge Graphs for Causal Discovery using Large Language Models (Under Review, RK 2026)**
+- **KG4Cause: Deriving Neuro-Symbolic Priors from Knowledge Graphs for Causal Discovery using Large Language Models (Under Review, KDD 2027)**
   - Leveraging Knowledge Graphs to derive neuro-symbolic priors via LLM for ML-based causal discovery
 
 - **Integrating knowledge graphs with symbolic AI: The path to interpretable hybrid AI systems in medicine (Journal of Web Semantics 2025)**
